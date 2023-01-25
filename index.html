@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .kucice {
+            height: 600px;
+            width: 500px;
+            background-color: cornflowerblue;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+        .letter {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .keyboard {
+            width: 1100px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        .keyLetter  {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+        }
+
+        .keyRow1 {
+            width: 1200px;
+            height: 100px;
+            margin: 0px 50px;
+    
+        }
+
+        .keyRow2 {
+            width: 1200px;
+            height: 100px;
+            margin: 0px 100px;
+        }
+        .keyRow3 {
+            margin: 0px 100px;
+            width: 1200px;
+            height: 100px;
+           
+        }
+    </style>
+</head>
+<body>
+    <H1 id="rndmRijeci"></H1>
+    <div class='kucice'>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+    </div>
+    <div class="keyboard">
+        <div class="keyRow1">
+            <div class="keyLetter">Q</div>
+            <div class="keyLetter">W</div>
+            <div class="keyLetter">E</div>
+            <div class="keyLetter">R</div>
+            <div class="keyLetter">T</div>
+            <div class="keyLetter">Z</div>
+            <div class="keyLetter">U</div>
+            <div class="keyLetter">I</div>
+            <div class="keyLetter">O</div>
+            <div class="keyLetter">P</div>
+        </div>
+        <div class="keyRow2">
+            <div class="keyLetter">A</div>
+            <div class="keyLetter">S</div>
+            <div class="keyLetter">D</div>
+            <div class="keyLetter">F</div>
+            <div class="keyLetter">G</div>
+            <div class="keyLetter">H</div>
+            <div class="keyLetter">J</div>
+            <div class="keyLetter">K</div>
+            <div class="keyLetter">L</div>
+        </div>
+        <div class="keyRow3">
+            <div class="keyLetter">+</div>
+            <div class="keyLetter">Y</div>
+            <div class="keyLetter">X</div>
+            <div class="keyLetter">C</div>
+            <div class="keyLetter">V</div>
+            <div class="keyLetter">B</div>
+            <div class="keyLetter">N</div>
+            <div class="keyLetter">M</div>
+            <div class="keyLetter">-</div>
+        </div>
+        <button id="button">Start</button>
+    </div>
+    <script>
+        let randomRijec = '';
+        let button = document.getElementById('button')
+        let rndmRijeci = document.getElementById('rndmRijeci')
+        let slovo = document.getElementsByClassName('keyLetter')
+        let keyboard = document.getElementById('keyboard')
+
+        function start () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                randomRijec = this.responseText
+                rndmRijeci.innerHTML = randomRijec
+            }
+        };
+        xhttp.open('GET',
+        'https://coded-quiz.azurewebsites.net/api/Wordle/GetRandom',true
+        );
+        xhttp.send();
+    }
+
+    button.addEventListener('click', start)
+
+    index = 0;
+    for (let i = 0; i < keyboard.length; i++) {
+        keyboard[i].addEventListener('click', function () {
+            
+        })
+    }
+
+    </script>
+    
+</body>
+</html>
